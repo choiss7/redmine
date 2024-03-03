@@ -6,11 +6,12 @@ git clone  https://github.com/choiss7/redmine
 
 cd redmine
 chmod -R ug+rw  * 
-vi docker-compose.yml   (디렉토리 폴더 수정)
+vi docker-compose.yml   (디렉토리 , 레드마인 IP 수정)
 docker-compose up -d 
 
+  
+설치된 레드마인 접속 
 http://ip:port     id : admin  , pass :admin 
-
 
 
 Environment:
@@ -29,6 +30,5 @@ Redmine plugins:
   redmine_ckeditor               1.2.3
   redmine_cms                    1.2.1
   redmine_lightbox2              0.5.1
-  redmine_slack                  0.2
-  
+  redmine_slack                  0.2  
 </pre>
