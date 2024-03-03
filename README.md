@@ -7,10 +7,10 @@ git clone  https://github.com/choiss7/redmine
 cd redmine
 chmod -R ug+rw  * 
 vi docker-compose.yml   (디렉토리 , 레드마인 IP 수정)
-docker-compose up -d 
-
+docker-compose up -d    
+docker-compose logs -f 
   
-설치된 레드마인 접속 
+설치된 레드마인 접속  (3분정도 대기)
 http://ip:port     id : admin  , pass :admin 
 
 
