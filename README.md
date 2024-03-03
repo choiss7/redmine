@@ -3,9 +3,8 @@
 git clone  https://github.com/choiss7/redmine
 
 cd redmine
-
+chmod -R ug+rw  * 
 vi docker-compose.yml   (디렉토리 폴더 수정)
-
 docker-compose up -d 
 
 http://ip:port     id : admin  , pass :admin 
