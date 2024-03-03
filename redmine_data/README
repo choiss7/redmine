@@ -1,1 +1,14 @@
-Put your Redmine plugins here.
+apt-get update
+apt-get install gcc
+apt-get install make
+apt-get install pkg-config 
+apt-get install libxml2 
+apt-get install libmysqlclient-dev
+apt-get install libpq-dev
+apt-get install imagemagick libmagickcore-dev libmagickwand-dev
+apt-get install make
+apt-get install pkg-config 
+apt-get install libxml2 
+apt-get install libmysqlclient-dev
+apt-get install libpq-dev
+apt-get install imagemagick libmagickcore-dev libmagickwand-dev
