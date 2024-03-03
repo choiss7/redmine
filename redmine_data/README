@@ -1,4 +1,10 @@
 
+레드마인 플러그인 추가 설치시  절차 
+
+레드마인 도커 접속 
+docker exec -it redmine  /bin/bash 
+cd /opt/bitnami/redmine 
+
 apt-get update
 apt-get install gcc
 apt-get install make
