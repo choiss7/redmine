@@ -14,6 +14,10 @@ docker-compose logs -f
 http://ip:port     id : admin  , pass :admin 
 
 
+프로젝트 개요 이미지 붙여넣기 오류 처리
+ALTER TABLE projects MODIFY description MEDIUMTEXT;  
+  
+
 Environment:
   Redmine version                4.2.3.stable
   Ruby version                   2.6.9-p207 (2021-11-24) [x86_64-linux]
