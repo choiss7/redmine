@@ -12,3 +12,12 @@ apt-get install libxml2
 apt-get install libmysqlclient-dev
 apt-get install libpq-dev
 apt-get install imagemagick libmagickcore-dev libmagickwand-dev
+
+
+필요한 플로그인 이동 /data/redmine_data/플러그인 -> /data/redmine_data/plugins
+bundle install 
+bundle exec rake db:migrate RAILS_ENV=production
+bundle exec rake redmine:plugins:migrate RAILS_ENV=production
+
+docker-compose rm -v redmine
+docker-compose up -d
