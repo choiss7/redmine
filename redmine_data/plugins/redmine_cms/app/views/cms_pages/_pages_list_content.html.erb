@@ -1,0 +1,33 @@
+<% @pages.each do |page| %>
+  <% tr_id = "page-#{page.id}" %>
+  <% depth = params[:depth].to_i %>
+  <% is_page_tree = @query.blank? || @query.filters.blank? %>
+  <tr id="<%= tr_id %>" class="<%= params[:parent_id] %> entry <%= is_page_tree ? page.tree_kind : 'file' %>">
+    <td style="padding-left: <%= 18 * depth %>px;" class="<%= "filename_no_report" %>">
+      <% if page.tree_kind == 'dir' && is_page_tree %>
+        <span class="expander" onclick="scmEntryClick('<%= tr_id %>', '<%= escape_javascript(cms_pages_path(
+          :status_id => @status,
+          :visibility => @visibility,
+          :layout_id => @layout_id,
+          :tag => @tag,
+          :name => @name,
+          :depth  => (depth + 1),
+          :parent_id => tr_id
+        )) %>');">&nbsp;</span>
+      <% end %>
+      <%= link_to(show_site_page_path(:path => page.path)) do %>
+        <span class="page-icon <%= page.page_icon %>"></span>
+        <%= h(page.slug) %>
+      <% end %>
+    </td>
+    <td class="name page_name_field"><%= link_to h(page.name), edit_cms_page_path(page), :title => page.path %></td>
+    <td><%= page.layout ? page.layout.name : l(:label_cms_redmine_layout) %></td>
+    <td><%= link_to page.version, cms_object_diff_path(page.id, :object_type => page.class) %></td>
+    <td><%= format_date(page.updated_at) %></td>
+    <td><%= page.author %></td>
+    <td class="buttons">
+      <%= cms_change_status_link('page', page) %>
+      <%= delete_link cms_page_path(page) if User.current.admin? %>
+    </td>
+  </tr>
+<% end %>

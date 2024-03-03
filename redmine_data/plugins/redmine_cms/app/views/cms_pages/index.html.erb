@@ -1,0 +1,80 @@
+<div class="contextual">
+<%= link_to l(:label_cms_page_new), new_cms_page_path, :class => 'icon icon-add' %>
+<%= link_to l(:button_import), cms_import_path(:object_type => CmsPage.name.underscore), :class => 'icon icon-duplicate' %>
+<% if !@query.new_record? && @query.editable_by?(User.current) %>
+  <%= link_to l(:button_edit), edit_cms_page_query_path(@query), :class => 'icon icon-edit' %>
+  <%= delete_link cms_page_query_path(@query) %>
+<% end %>
+</div>
+
+<%= form_tag({ :controller => 'cms_pages', :action => 'index', :project_id => @project }, :method => :get, :id => 'query_form') do %>
+    <script type="text/javascript">
+       jQuery(function($) {
+          $("#search").observe_field(2, function() {
+            var form = $("#query_form");
+            var url = form.attr("action");
+            form.find('[name="c[]"] option').each(function(i, elem){
+              $(elem).attr('selected', true)
+            })
+            var formData = form.serialize();
+            form.find('[name="c[]"] option').each(function(i, elem){
+              $(elem).attr('selected', false)
+            })
+            $.get(url, formData, function(data) {
+                $("#cms_pages table.pages tbody").html(data);
+            });
+          });
+        });
+    </script>
+
+    <h2 class="cms_pages_header">
+      <span id='scope_header' class="scope_title">
+        <%= @query.new_record? ? l(:label_cms_page_plural) : h(@query.name) %>
+      </span>
+      <span class="live_search">
+        <%= text_field_tag(:search, params[:search], :autocomplete => "off", :class => "live_search_field", :placeholder => l(:label_cms_page_search) ) %>
+      </span>
+    </h2>
+
+    <%= hidden_field_tag 'set_filter', '1' %>
+    <%= hidden_field_tag 'object_type', 'cms_page' %>
+    <div id="query_form_content" class="hide-when-print">
+      <fieldset id="filters" class="collapsible <%= @query.new_record? ? "" : "collapsed" %>">
+        <legend onclick="toggleFieldset(this);"><%= l(:label_filter_plural) %></legend>
+        <div style="<%= @query.new_record? ? "" : "display: none;" %>">
+          <%= render :partial => 'queries/filters', :locals => {:query => @query} %>
+        </div>
+      </fieldset>
+    </div>
+
+    <p class="buttons hide-when-print">
+      <%= link_to_function l(:button_apply), 'submit_query_form("query_form")', :class => 'icon icon-checked' %>
+      <%= link_to l(:button_clear), { :set_filter => 1 }, :class => 'icon icon-reload'  %>
+      <% if @query.new_record? && User.current.logged? %>
+        <%= link_to_function l(:button_save),
+                               "$('#query_form').attr('action', '#{ new_cms_page_query_path }'); submit_query_form('query_form')",
+                               :class => 'icon icon-save' %>
+
+      <% end %>
+    </p>
+<% end %>
+
+<%= error_messages_for 'query' %>
+<% if @query.valid? %>
+
+<% end %>
+
+<div class="autoscroll"  id="cms_pages">
+  <%= render :partial => 'pages' %>
+</div>
+
+<% content_for :sidebar do %>
+  <% render :partial => 'cms_settings/menu' %>
+<% end %>
+
+<% content_for :header_tags do %>
+  <%= javascript_include_tag :redmine_cms_pages, :plugin => 'redmine_cms'  %>
+  <%= select2_assets %>
+<% end %>
+
+<% html_title(l(:label_cms_page_plural)) -%>

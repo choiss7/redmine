@@ -1,0 +1,18 @@
+<div class="autoscroll">
+  <table class="list pages" id="browser">
+    <thead>
+      <tr>
+        <th><%= l(:label_cms_slug) %></th>
+        <th><%= l(:label_cms_name) %></th>
+        <th><%= l(:label_cms_layout) %></th>
+        <th><%= l(:label_cms_version) %></th>
+        <th><%= l(:field_updated_on) %></th>
+        <th><%= l(:label_cms_author) %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render :partial => 'pages_list_content' %>
+    </tbody>
+  </table>
+</div>

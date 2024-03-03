@@ -1,0 +1,39 @@
+pipeline:
+  tests:
+    image: redmineup/redmineup_ci
+    commands:
+      - service postgresql start && service mysql start && sleep 5
+      - export PATH=~/.rbenv/shims:$PATH
+      - export CODEPATH=`pwd`
+      - /root/run_for.sh redmine_cms ${RUBY_VER} ${DB} ${REDMINE}
+matrix:
+  include:
+    - RUBY_VER: ruby-2.4.1
+      DB: mysql
+      REDMINE: redmine-3.4
+      COVERAGE_EXPORT: 1
+    - RUBY_VER: ruby-2.4.1
+      DB: mysql
+      REDMINE: redmine-4.0
+    - RUBY_VER: ruby-2.2.6
+      DB: mysql
+      REDMINE: redmine-3.3
+    - RUBY_VER: ruby-2.2.6
+      DB: pg
+      REDMINE: redmine-3.3
+    - RUBY_VER: ruby-2.2.6
+      DB: mysql
+      REDMINE: redmine-3.0
+    - RUBY_VER: ruby-1.9.3
+      DB: pg
+      REDMINE: redmine-3.3
+    - RUBY_VER: ruby-2.4.1
+      DB: mysql
+      REDMINE: redmine-trunk
+    - RUBY_VER: ruby-2.4.1
+      DB: pg
+<<<<<<< HEAD
+      REDMINE: redmine-trunk
+=======
+      REDMINE: redmine-trunk
+>>>>>>> master

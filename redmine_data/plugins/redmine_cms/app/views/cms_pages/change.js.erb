@@ -1,0 +1,2 @@
+$('tr#page-<%= @page.id %> .buttons').html('<%= escape_javascript(cms_change_status_link('page', @page) + (User.current.admin? ? delete_link(cms_page_path(@page)) : '')) %>');
+$('#page_lock_version').val('<%= @page.lock_version %>')

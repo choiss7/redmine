@@ -1,0 +1,6 @@
+<%= raw @cms_page_tags.map { |cms_page_tag| {
+        'id' => @names_only ? cms_page_tag.name : cms_page_tag.id,
+        'text' => cms_page_tag.name
+      }
+    }.to_json
+%>

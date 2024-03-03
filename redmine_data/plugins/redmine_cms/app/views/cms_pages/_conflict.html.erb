@@ -1,0 +1,20 @@
+<div class="conflict">
+  <%= l(:label_cms_update_conflict) %> 
+  <% if @conflict_versions.present? %>
+    <div class="conflict-versions">
+    <% @conflict_versions.sort_by(&:version).reverse.each do |version| %>
+      <div class="conflict-version">
+      <p><%= authoring version.created_at, version.author, :label => :label_updated_time_by %>, <%= link_to("##{version.version}", cms_object_diff_path(@page.id, :object_type => @page.class.name.underscore, :version => version.version, :version_from => params[:last_version]))  %></p>
+      <div class="wiki">
+        <%= textilizable(version.comments) unless version.comments.blank? %>
+      </div>
+      </div>
+    <% end %>
+    </div>
+  <% end %>
+</div>
+<p>
+  <label><%= radio_button_tag 'conflict_resolution', 'overwrite' %> <%= l(:label_cms_conflict_resolution_overwrite) %></label><br />
+  <label><%= radio_button_tag 'conflict_resolution', 'cancel' %> <%= l(:label_cms_conflict_resolution_cancel) %></label>
+</p>
+<p><%= submit_tag l(:button_submit) %></p>
