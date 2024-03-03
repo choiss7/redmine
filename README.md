@@ -1,3 +1,5 @@
+<pre>
+
 레드마인 4.2.3 도커 설치
 
 git clone  https://github.com/choiss7/redmine
@@ -10,7 +12,7 @@ docker-compose up -d
 http://ip:port     id : admin  , pass :admin 
 
 
-<pre>
+
 Environment:
   Redmine version                4.2.3.stable
   Ruby version                   2.6.9-p207 (2021-11-24) [x86_64-linux]
