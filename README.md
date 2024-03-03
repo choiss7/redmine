@@ -11,7 +11,7 @@ docker-compose up -d
 http://ui:port     id : admin  , pass :admin 
 
 
---------------------------------------------------------------------------------
+
 Environment:
   Redmine version                4.2.3.stable
   Ruby version                   2.6.9-p207 (2021-11-24) [x86_64-linux]
@@ -29,4 +29,4 @@ Redmine plugins:
   redmine_cms                    1.2.1
   redmine_lightbox2              0.5.1
   redmine_slack                  0.2
-  ---------------------------------------------------------------------------------
+  
