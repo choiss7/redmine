@@ -8,7 +8,7 @@ vi docker-compose.yml   (디렉토리 폴더 수정)
 
 docker-compose up -d 
 
-http://ui:port     id : admin  , pass :admin 
+http://ip:port     id : admin  , pass :admin 
 
 
 <pre>
