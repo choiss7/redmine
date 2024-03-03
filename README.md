@@ -14,8 +14,21 @@ docker-compose logs -f
 http://ip:port     id : admin  , pass :admin 
 
 
-프로젝트 개요 이미지 붙여넣기 오류 처리
-ALTER TABLE projects MODIFY description MEDIUMTEXT;  
+프로젝트 개요 이미지 붙여넣기 오류 처리  
+root@192.1698.219.67# docker ps
+CONTAINER ID   IMAGE                            COMMAND                  CREATED       STATUS         PORTS                                       NAMES
+8198157e4aef   choipro/redmine:4.2.3-5plugins   "/opt/bitnami/script…"   5 hours ago   Up 5 minutes   0.0.0.0:8088->3000/tcp, :::8088->3000/tcp   redmine-8088_redmine_1
+40b62f039fa4   bitnami/mariadb:10.1             "/opt/bitnami/script…"   5 hours ago   Up 5 minutes   3306/tcp                                    redmine-8088_mariadb_1
+[root@p1-splunk-192-168-219-67 redmine-8088]# docker exec -it 40b62f039fa4 /bin/bash
+I have no name!@40b62f039fa4:/$ mysql -uroot -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.1.47-MariaDB Source distribution
+MariaDB [(none)]> use bitnami_redmine ;
+Database changed
+MariaDB [bitnami_redmine]>  ALTER TABLE projects MODIFY description MEDIUMTEXT; 
+
   
 
 Environment:
