@@ -4,7 +4,7 @@ git clone  https://github.com/choiss7/redmine
 
 cd redmine
 chmod -R ug+rw  * 
-vi docker-compose.yml   (디렉토리 , 레드마인 IP 수정)
+vi docker-compose.yml   (설치 환경 고려하여 디렉토리 , 레드마인 IP 수정)
 docker-compose up -d    
 docker-compose logs -f 
   
