@@ -19,7 +19,7 @@ services:
     restart: always
     ports:
 # 설치 포트 수정 8080     
-      - '8080:3000'
+      - '8081:3000'
     volumes:
 # 설치 경로 수정 /data/redmine_data 
       - '/data/redmine_data:/bitnami/redmine'
