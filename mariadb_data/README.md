@@ -1,4 +1,4 @@
-
+<pre>
 레드마인 데이터베이스 이행
 
 root@ict-pmo-dev-192-168-219-106:/data/redmine/mariadb_data# docker ps
@@ -57,4 +57,4 @@ drwxr-xr-x 3 root root      4096 Oct 28  2020 ..
 drwxr-xr-x 6 1001 root      4096 Mar  3 09:14 data
 I have no name!@52bf642a0792:/bitnami/mariadb$ mysql -uroot -p bitnami_redmine < bitnami_redmineplusagile.sql 
 Enter password: 
-
+</pre>
