@@ -15,7 +15,8 @@ services:
       - MARIADB_USER=bn_redmine
       - MARIADB_DATABASE=bitnami_redmine
   redmine:
-    image: docker.io/choipro/redmine:4.2.3-5plugins
+#   image: docker.io/choipro/redmine:4.2.3-5plugins
+    image: docker.io/choipro/redmine:4.2.3-7plugins
     restart: always
     ports:
 # 설치 포트 수정 8080     
