@@ -1,15 +1,15 @@
 레드마인 4.2.3 도커  + 플러그인  설치
 
-git clone  https://github.com/choiss7/redmine
+1.git clone  https://github.com/choiss7/redmine
 
-cd redmine
-chmod -R ug+rw  * 
-vi docker-compose.yml   (설치 환경 고려하여 디렉토리 , 레드마인 IP 수정)
-docker-compose up -d    
-docker-compose logs -f 
+2.cd redmine
+3.chmod -R ug+rw  * 
+4.vi docker-compose.yml   (설치 환경 고려하여 디렉토리 , 레드마인 IP 수정)
+5.docker-compose up -d    
+6.docker-compose logs -f 
   
 설치된 레드마인 접속  (3분정도 대기)
-http://ip:port     id : admin  , pass :admin 
+7.http://ip:port     id : admin  , pass :admin 
 
 
 프로젝트 개요 이미지 붙여넣기 오류 처리  
