@@ -13,12 +13,6 @@ apt-get install libxml2
 apt-get install libmysqlclient-dev
 apt-get install libpq-dev
 apt-get install imagemagick libmagickcore-dev libmagickwand-dev
-apt-get install make
-apt-get install pkg-config 
-apt-get install libxml2 
-apt-get install libmysqlclient-dev
-apt-get install libpq-dev
-apt-get install imagemagick libmagickcore-dev libmagickwand-dev
 
 필요한 플러그인 이동하면서  bundle install 이상 여부 확인
 /data/redmine_data/플러그인 -> /data/redmine_data/plugins
